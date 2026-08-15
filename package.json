@@ -1,0 +1,23 @@
+{
+  "name": "naming-mcp-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Workspace root for shunshi-naming-core (Chinese name scoring engine) and shunshi-naming-mcp (MCP server wrapper).",
+  "workspaces": [
+    "packages/naming-core",
+    "packages/naming-mcp"
+  ],
+  "_comment_overrides": "Local development only: points the cross-repo dependency at the sibling kangxi-mcp checkout so both repos can be worked on together. Run `npm run build` in kangxi-mcp first — this links the built package, not the sources. NOTE the path carries one extra `../`: npm resolves a workspace-root override relative to a workspace package directory, then writes the symlink relative to node_modules, so `../../../x` lands as `../../x`. This file is private and never published; consumers install shunshi-kangxi-core from npm.",
+  "overrides": {
+    "shunshi-kangxi-core": "file:../../../kangxi-mcp/packages/kangxi-core"
+  },
+  "scripts": {
+    "build": "npm run build -w shunshi-naming-core && npm run build -w shunshi-naming-mcp",
+    "test": "npm run test -w shunshi-naming-core",
+    "dev:mcp": "npm run dev -w shunshi-naming-mcp",
+    "clean": "rm -rf packages/*/dist packages/*/*.tsbuildinfo"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

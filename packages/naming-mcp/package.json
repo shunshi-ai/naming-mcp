@@ -1,0 +1,72 @@
+{
+  "name": "shunshi-naming-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Chinese name scoring (姓名学 / 姓名判断 / 성명학) — 五格剖象 · 三才 · 81 数理 · 生肖 · 八字喜用, computed on real 康熙笔画. Powered by Shunshi.AI.",
+  "type": "module",
+  "bin": {
+    "shunshi-naming-mcp": "./dist/stdio.js"
+  },
+  "main": "./dist/mcp.js",
+  "types": "./dist/mcp.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/mcp.d.ts",
+      "default": "./dist/mcp.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc && chmod +x dist/stdio.js",
+    "dev": "tsx src/stdio.ts",
+    "smoke": "tsx tests/smoke-stdio.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "chinese-name",
+    "姓名学",
+    "五格剖象",
+    "三才五格",
+    "name-scoring",
+    "baby-name",
+    "取名",
+    "起名",
+    "姓名判断",
+    "작명",
+    "성명학",
+    "康熙笔画",
+    "生肖",
+    "shunshi",
+    "shunshi.ai",
+    "顺时"
+  ],
+  "author": "Shunshi.AI (https://shunshi.ai)",
+  "license": "MIT",
+  "homepage": "https://github.com/shunshi-ai/naming-mcp/tree/main/packages/naming-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunshi-ai/naming-mcp.git",
+    "directory": "packages/naming-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/shunshi-ai/naming-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "shunshi-kangxi-core": "^0.1.0",
+    "shunshi-naming-core": "^0.1.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

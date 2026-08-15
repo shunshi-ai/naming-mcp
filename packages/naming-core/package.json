@@ -1,0 +1,67 @@
+{
+  "name": "shunshi-naming-core",
+  "version": "0.1.0",
+  "description": "Chinese name scoring engine — 五格剖象 (five-grid) · 三才 · 81 数理 · 生肖姓名学 · 八字喜用 · 音律. Deterministic table lookup on 康熙笔画, offline. Powered by Shunshi.AI.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "tsx tests/score.test.ts && tsx tests/parity.test.ts",
+    "test:parity": "tsx tests/parity.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "chinese-name",
+    "姓名学",
+    "五格剖象",
+    "三才五格",
+    "name-scoring",
+    "baby-name",
+    "取名",
+    "起名",
+    "命名",
+    "姓名判断",
+    "작명",
+    "성명학",
+    "kangxi-strokes",
+    "康熙笔画",
+    "生肖",
+    "zodiac",
+    "shunshi",
+    "shunshi.ai"
+  ],
+  "author": "Shunshi.AI (https://shunshi.ai)",
+  "license": "MIT",
+  "homepage": "https://github.com/shunshi-ai/naming-mcp/tree/main/packages/naming-core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunshi-ai/naming-mcp.git",
+    "directory": "packages/naming-core"
+  },
+  "bugs": {
+    "url": "https://github.com/shunshi-ai/naming-mcp/issues"
+  },
+  "dependencies": {
+    "shunshi-kangxi-core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
